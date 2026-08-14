@@ -1,0 +1,42 @@
+#!/usr/bin/python
+#
+#Author: Geoff Howland
+#Project: Red Eye Monitoring (REM)   http://redeyemon.sourceforge.net/
+#Licensed under the MIT License:     http://en.wikipedia.org/wiki/MIT_License
+#
+
+# REM libraries
+import site_control
+from api import cloud as rem_ec2
+from util import *
+
+logging.Disable()
+
+instance = rem_ec2.GetMachineInstance()
+
+if instance == None:
+  print 'Could not find this instances information.  Likely an EC2 failure.'
+
+fields = {
+          1:'name',
+          2:'ami',
+          3:'dns_external',
+          4:'dns_internal',
+          5:'ec2_state',
+          6:'ec2_security_group',
+          7:'ami_launch_index',
+          8:'machine_kind',
+          9:'time_launch',
+          10:'data_center',
+          11:'ec2_product_code',
+          12:'monitoring_status',
+          13:'ip_external',
+          14:'ip_internal'
+}
+
+keys = fields.keys()
+keys.sort()
+for key in keys:
+  field = fields[key]
+
+  print '%s: %s' % (field, instance[field])

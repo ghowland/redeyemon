@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+#Author: Geoff Howland
+#Project: Red Eye Monitoring (REM)   http://redeyemon.sourceforge.net/
+#Licensed under the MIT License:     http://en.wikipedia.org/wiki/MIT_License
+#
+# Ensure the REM Poller (Collects RRD data from REM Listeners) has started
+#
+
+cd /usr/local/site_control/rem
+
+# Ignore that its already started, not a big dael
+/usr/local/site_control/rem/rem_poller.py start
+

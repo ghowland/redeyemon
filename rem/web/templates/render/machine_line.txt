@@ -1,0 +1,7 @@
+<tr>
+	<td>%(status_image)s</td>
+	<td><a href="machine?id=%(id)s"><b>%(name)s</b></a></td>
+	<td>%(site_data_center_name)s</td>
+	<td>%(hardware_kind_name)s</td>
+	<td>%(hardware_image_name)s</td>
+</tr>

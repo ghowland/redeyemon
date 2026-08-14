@@ -1,0 +1,43 @@
+# Arvhices
+rra:
+- [AVERAGE, 0.5, 1, 86400]
+- [AVERAGE, 0.5, 10, 1008]
+- [MAX, 0.5, 10, 1008]
+- [MIN, 0.5, 10, 1008]
+- [AVERAGE, 0.5, 60, 8544]
+
+
+# Color progressions
+colors:
+  line: ["#CA442A", "#CC7D28", "#CCB728", "#9B9B9B", "#7B7B7B"]
+  area: ["#EA644A", "#EC9D48", "#ECD748", "#BBBBBB", "#ABABAB"]
+
+
+# Graphing instructions
+graph_schedule:
+  hourly:
+    # Repeat every N seconds (300 = 5 minutes)
+    repeat: 300
+    
+    cols: [duration]
+    
+    # Graph the period of N seconds (3600 = 1 hour)
+    period: 3600
+  
+  weekly:
+    # Repeat every N seconds (3600 = 1 hour)
+    repeat: 3600
+    
+    cols: [duration]
+    
+    # Graph the period of N seconds (604800 = 7 days)
+    period: 604800
+  
+  monthly:
+    # Repeat every N seconds (3600 = 1 hour)
+    repeat: 3600
+    
+    cols: [duration]
+    
+    # Graph the period of N seconds (2592000 = 30 days)
+    period: 2592000

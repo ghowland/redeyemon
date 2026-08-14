@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>REM Machine Monitoring Graphs</title>
+<meta http-equiv="refresh" content="60" />
+</head>
+<body>
+<h1>Graphs</h1>
+<ul>
+<li><a href="__cpu.html">CPU</a></li>
+<li><a href="__network.html">Network</a></li>
+<li><a href="__diskspace.html">Disk Space</a></li>
+<li><a href="__diskio.html">Disk IO</a></li>
+<li><a href="__diskinode.html">Disk Inodes</a></li>
+</ul>
+<h1>Machines</h1>
+<ul>
+%(machines)s
+</ul>
+</body>
+</html>

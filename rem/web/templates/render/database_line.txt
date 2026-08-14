@@ -1,0 +1,9 @@
+<tr>
+	<td>%(status_image)s</td>
+	<td><a href="database?id=%(id)s"><b>%(name)s</b></a></td>
+	<td>%(info)s</td>
+	<td>%(kind_name)s</td>
+	<td><center>%(replica_goal)s</center></td>
+	<td><center>%(storage_size_gb)s</center></td>
+	<td>%(instance_statuses)s</td>
+</tr>

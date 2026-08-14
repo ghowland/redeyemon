@@ -1,0 +1,43 @@
+# httpd procblock
+
+data:
+  something: true
+
+run_simultaneous:
+  httpd:
+    - script: blocks/httpd/__init__.py
+
+
+__usage:
+  name: dropSTAR
+  author: Geoff Howland
+  info: Dynamic web server for rapid development and deployment of scripts, templates and RPC functions.
+  website: http://ge01f.com/
+  pubkey: null
+  
+  # If true, this program will run in the background until all the threads
+  #   it's running are closed, or it is requested to be killed.
+  #daemon: true
+  daemon: false
+  
+  # This is a long running process, so if it is not daemonized, loop until
+  #   a keyboard interrupt is found or some other process releases __running
+  longrunning: true
+  
+  pidfile: httpd.pid
+  
+  # Can ensure current working directory is set to this...
+  cwd: /Users/ghowland/Documents/projects/dropstar/
+  
+  options:
+    port:
+      letter: p
+      type: value
+      info: Port to listen for HTTP/XMLRPC on.
+      default: 8080
+    verbose:
+      letter: v
+      type: flag
+      info: Highly verbose output, if flag is enabled
+      default: false
+

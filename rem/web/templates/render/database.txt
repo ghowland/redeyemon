@@ -1,0 +1,38 @@
+
+<h2>%(status_image)s Database: <b>%(name)s</b></h2>
+
+<div class="red_box" style="width: 50%;">
+	<table width="100%">
+	<tr>
+		<td><b>Database Set:</b></td>
+		<td><a href="database_set?id=%(set)s">%(set_name)s</a></td>
+		
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td><b>Type:</b></td>
+		<td>%(kind_name)s</td>
+
+		<td><b>Replica Goal:</b></td>
+		<td>%(replica_goal)s</td>
+	</tr><tr>
+		<td><b>Size GB:</b></td>
+		<td>%(storage_size_gb)s</td>
+		
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td><b>Info:</b></td>
+		<td colspan=3>%(info)s</td>
+	</tr>
+	</table>
+</div>
+
+<div class="black_box" style="width: 50%;">
+<b>Instances:</b>
+
+<table width="100%">
+%(instance_info)s
+</table>
+</div>
+

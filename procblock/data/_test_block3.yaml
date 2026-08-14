@@ -1,0 +1,22 @@
+# _test_block2.yaml
+
+
+run:
+  - script: /Users/ghowland/Documents/projects/procblock/blocks/monitor/cpu.py
+    cache: monitor_cpu
+    timeseries collect:
+      group monitor_cpu:
+        # Field mappings: Output -> Timeseries: Group+Target.Field
+        cpu: cpu
+
+
+__usage:
+  name: CPU Monitor
+  info: Monitor this machine's CPU usage.
+  author: Geoff Howland
+  
+  daemon: false
+  
+  # It's got an interval cache to run
+  longrunning: true
+

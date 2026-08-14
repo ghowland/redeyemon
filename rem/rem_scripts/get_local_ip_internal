@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+#Author: Geoff Howland
+#Project: Red Eye Monitoring (REM)   http://redeyemon.sourceforge.net/
+#Licensed under the MIT License:     http://en.wikipedia.org/wiki/MIT_License
+#
+
+/sbin/ifconfig  | /bin/grep inet | /bin/cut -d ':' -f 2 | /bin/cut -d ' ' -f 1 | /bin/grep -v 127.0.0.1 | /bin/grep 10.

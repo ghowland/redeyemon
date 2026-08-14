@@ -1,0 +1,8 @@
+Most of these images are from the IconExperience library from Incors GmbH.
+
+I purchased this library, and so as I understand their license have the right to include them in this package.  However, because they are not mine, they are not being distributed under the MIT license.
+
+I thought I should point this out in case anyone wonders.
+
+I think their icon library is great, if you like it, buy it:  http://www.iconexperience.com/
+

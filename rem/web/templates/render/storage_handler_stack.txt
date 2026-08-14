@@ -1,0 +1,28 @@
+
+<h2 width="50%">Storage Handler Stack: <b>%(name)s</b></h2>
+
+<div class="red_box" style="width: 66%;">
+	<table width="100%">
+	<tr>
+		<td><b>Stack Parent:</b></td>
+		<td><a href="storage_handler_stack?id=%(stack_parent)s">%(stack_parent_name)s</td>
+
+		<td><b>Get Config Information Script:</b></td>
+		<td><a href="script?id=%(script_config_info)s">%(script_config_info_name)s</a></td>
+	</tr><tr>
+		<td><b>Info:</b></td>
+		<td>%(info)s</td>
+
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+</div>
+
+<div class="black_box" style="width: 50%;">
+<b>Storages that use this Handler Stack:</b>
+
+<table width="100%">
+%(storage_info)s
+</table>
+</div>

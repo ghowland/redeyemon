@@ -1,0 +1,54 @@
+
+<h2>%(status_image)s Pool: <b>%(name)s</b></h2>
+
+<div class="red_box" style="width: 66%;">
+	<table width="100%">
+	<tr>
+		<td><b>Zone:</b></td>
+		<td>%(site_data_center_name)s</td>
+
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td><b>Hardware:</b></td>
+		<td>%(hardware_kind_name)s</td>
+
+		<td><b>Image:</b></td>
+		<td>%(hardware_image_name)s</td>
+	</tr><tr>
+		<td><b>Machine Goal:</b></td>
+		<td>%(machine_goal)s</td>
+
+		<td><b>Machines Active:</b></td>
+		<td>%(machine_active)s</td>
+	</tr><tr>
+		<td><b>Machines:</b></td>
+		<td colspan=3>%(machine_statuses)s</td>
+	</tr>
+	</table>
+</div>
+
+<div class="black_box" style="width: 85%;">
+%(parent_pool_info)s
+</div>
+
+<div class="black_box" style="width: 85%;">
+%(pool_db_storage_info)s
+</div>
+
+<div class="black_box" style="width: 50%;">
+<b>Machines:</b>
+
+<table width="100%">
+%(machine_info)s
+</table>
+</div>
+
+
+<div class="black_box" style="width: 85%;">
+<b>Services:</b>
+<br>
+<table width="100%">
+%(service_info)s
+</table>
+</div>

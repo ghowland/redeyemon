@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+#Author: Geoff Howland
+#Project: Red Eye Monitoring (REM)   http://redeyemon.sourceforge.net/
+#Licensed under the MIT License:     http://en.wikipedia.org/wiki/MIT_License
+#
+# Reads in the local machine cache YAML without the annoying python markup.
+#
+/bin/cat /usr/local/site_control/rem_machine_cache.yaml | /bin/sed -e 's/!\!python\/long//g'
+

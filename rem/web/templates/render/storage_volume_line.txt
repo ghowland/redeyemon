@@ -1,0 +1,11 @@
+<tr>
+	<td>%(status_image)s</td>
+	<td><a href="storage_volume?id=%(id)s"><b>%(storage_name)s</b></a></td>
+	<td>%(storage_order)s</td>
+	<td>%(status_name)s</td>
+	<td>%(zone)s</td>
+	<td>%(volume_id)s</td>
+	<td>%(size_gb)sGB</td>
+	<td><a href="machine?id=%(machine)s">%(machine_name)s</a></td>
+	<td>%(machine_device)s</td>
+</tr>

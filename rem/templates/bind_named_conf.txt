@@ -1,0 +1,47 @@
+//
+// Sample named.conf BIND DNS server 'named' configuration file
+// for the Red Hat BIND distribution.
+//
+// See the BIND Administrator's Reference Manual (ARM) for details, in:
+//   file:///usr/share/doc/bind-*/arm/Bv9ARM.html
+// Also see the BIND Configuration GUI : /usr/bin/system-config-bind and
+// its manual.
+//
+options
+{
+        // Put files that named is allowed to write in the data/ directory:
+        directory "/var/named"; // the default
+        dump-file               "data/cache_dump.db";
+        statistics-file         "data/named_stats.txt";
+        memstatistics-file      "data/named_mem_stats.txt";
+
+};
+
+
+logging
+{
+        channel default_debug {
+                file "data/named.run";
+                severity dynamic;
+        };
+};
+
+
+// Link in the root server hint file.
+zone "." in {
+        type hint;
+        file "/var/named/named.root";
+};
+
+// REM Inserts zone files here...
+
+%(zones)s
+
+
+//Example
+/*
+zone "prod.tweetedia.com" {
+        type master;
+        file "/var/named/data/internal/prod.domain.com.db";
+};
+*/

@@ -1,0 +1,22 @@
+Name: %(name)s (%(id)s)
+Site: %(site_name)s (%(site)s)
+
+Internal IP: %(ip_internal)s
+
+Is Master Control: %(is_master)s
+Master IP: %(master_ip)s
+
+
+DNS Internal: %(dns_internal)s
+DNS Public: %(dns_public)s
+DNS Private: %(dns_private)s
+
+Pools: %(pools)s
+
+
+Machine Details:
+%(machine)s
+
+
+Site Details:
+%(site_data)s

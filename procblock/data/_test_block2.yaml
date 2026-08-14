@@ -1,0 +1,22 @@
+# _test_block2.yaml
+
+
+boing: up
+
+if thing == "5":
+  else:
+    beet: 3
+    space: on
+  
+  if street == "8":
+    else:
+      beet: 10
+      leave: soap
+    
+    if peace == "no":
+      else:
+        beet: 9
+        bar: null
+      
+      beet: 6
+      sweet: home

@@ -1,0 +1,39 @@
+# _test_block.yaml
+
+something:
+  data: True
+  
+  if band == 'aid':
+    aid: band
+  
+  elif band == 'tame':
+    aid: dragon
+    
+    __control_PreProcessLockAquire:
+      name: tame
+      
+    if table == 'grow':
+      jade: third
+      
+      run:
+        - shell: pwd
+        - shell: date
+        - shell: pwd
+      
+      __control_PutTagResultInQueue:
+        - tag: run
+          queue: runs
+    
+    __control_FinalProcessLockRelease:
+      name: tame
+    
+    else:
+      jade: forth
+  
+  else:
+    if table == 'grow':
+      aid: first
+    else:
+      aid: second
+
+

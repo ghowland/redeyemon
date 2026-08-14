@@ -1,0 +1,9 @@
+<tr>
+	<td><a href="pool?id=%(id)s"><b>%(name)s</b></a></td>
+	<td>%(site_data_center_name)s</td>
+	<td>%(hardware_kind_name)s</td>
+	<td>%(hardware_image_name)s</td>
+	<td>%(machine_goal)s</td>
+	<td>%(machine_active)s</td>
+	<td>%(machine_statuses)s</td>
+</tr>

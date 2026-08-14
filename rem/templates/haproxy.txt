@@ -1,0 +1,51 @@
+# HAProxy configuration file
+global
+#	uid 99
+#	gid 99
+	daemon
+	stats socket /var/run/haproxy.stat mode 600
+	log 127.0.0.1 local4
+	maxconn 40000
+	ulimit-n 80013
+	pidfile /var/run/haproxy.pid
+
+defaults
+	log global
+	mode	http
+	contimeout	4000
+	clitimeout	42000
+	srvtimeout	43000
+	balance	roundrobin
+
+	# Enable stats via the listening ports.
+	stats enable
+	stats hide-version
+	stats scope   .
+	stats uri     /admin?stats
+	stats realm   Haproxy\ Statistics
+	stats auth    sonoma:tweet
+
+
+listen edge 0.0.0.0:8100
+%(edge)s
+
+listen proxy 0.0.0.0:8200
+%(proxy)s
+
+
+
+#Example machine entry:
+#  server haproxy_label 127.0.0.1:8010 weight 1 minconn 1 maxconn 6 check inter 20000
+
+
+# Listen options.  Can do some very interesting things dynamically with this, like adding cookies, or host headers.
+#
+#listen VIP_Name 192.168.2.87:80
+#	mode	http
+#	option	forwardfor
+#	source 0.0.0.0 usesrc clientip
+#	cookie	SERVERID insert nocache indirect
+#	server server1 10.0.0.60:80 weight 1 cookie server1 check
+#	server server2 10.0.0.61:80 weight 1 cookie server2 check
+#	server	backup 127.0.0.1:80 backup
+#	option redispatch

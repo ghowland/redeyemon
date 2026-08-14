@@ -1,0 +1,58 @@
+# _test_block.yaml
+
+this_thing:
+  
+  # Run named run-blocks simulateously (different threads)
+  run_simultaneous:
+    pusher:
+      - script: scripts/pusher.py
+    puller:
+      - script: scripts/puller.py
+  
+
+__usage:
+  name: Pusher / Puller
+  author: Geoff Howland
+  website: http://ge01f.com/
+  pubkey: null
+  
+  # If true, this program will run in the background until all the threads
+  #   it's running are closed, or it is requested to be killed.
+  #daemon: true
+  daemon: false
+  
+  # This is a long running process, so if it is not daemonized, loop until
+  #   a keyboard interrupt is found or some other process releases __running
+  longrunning: true
+  
+  pidfile: pushpull.pid
+  
+  # Can ensure current working directory is set to this...
+  cwd: /Users/ghowland/
+  
+  # Unlimited number of args
+  args:
+    - name: file
+      info: File to process
+      required: true
+    # Default args must come after required=true args.  It's the law.
+    - name: timeout
+      info: Seconds until timeout.
+      default: 60
+    - name: targets
+      # Pick up all remaining arguments, and put them in here
+      info: All the targets we will use.
+      remaining: true
+  
+  options:
+    output:
+      letter: o
+      type: value
+      info: File to output results to
+      default: null
+    verbose:
+      letter: v
+      type: flag
+      info: Highly verbose output, if flag is enabled
+      default: false
+

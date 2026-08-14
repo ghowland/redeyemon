@@ -1,0 +1,46 @@
+
+<h2>%(status_image)s Service: <b>%(name)s</b></h2>
+
+<div class="red_box" style="width: 50%;">
+	<table width="100%">
+	<tr>
+		<td><b>Config Script:</b></td>
+		<td>%(script_config)s</td>
+
+		<td><b>Verify Script:</b></td>
+		<td>%(script_verify)s</td>
+	</tr><tr>
+		<td><b>Monitor Script:</b></td>
+		<td>%(script_monitor)s</td>
+
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td><b>Init Service:</b></td>
+		<td>%(init_service)s</td>
+
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td><b>Info:</b></td>
+		<td colspan=3>%(info)s</td>
+	</tr>
+	</table>
+</div>
+
+<div class="red_box" style="width: 80%;">
+<b>Pools:</b>
+
+<table width="100%">
+%(pool_info)s
+</table>
+</div>
+
+<div class="black_box" style="width: 50%;">
+<b>Machines:</b>
+
+<table width="100%">
+%(machine_info)s
+</table>
+</div>
+

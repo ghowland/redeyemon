@@ -1,0 +1,54 @@
+# Default Condition Functions
+#
+#NOTE(g): Specifically excluding condition "not", it conflicts with "not in"
+#   and can be switched out with "!=" without loss of mental precision, I think.
+#
+
+"==":
+  compare: EqualTo
+
+
+">":
+  compare: GreaterThan
+
+
+"<":
+  compare: LessThan
+
+
+">=":
+  compare: GreaterThanOrEqualTo
+
+
+"<=":
+  compare: LessThanOrEqualTo
+
+
+"!=":
+  compare: NotEqualTo
+
+
+"in":
+  compare: InSet
+
+
+"not in":
+  compare: NotInSet
+
+
+"is empty":
+  compare: SetIsEmpty
+
+
+"is not empty":
+  compare: SetIsNotEmpty
+
+
+"has":
+  compare: SetHas
+
+
+"hasno":
+  compare: SetHasNo
+
+

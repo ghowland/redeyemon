@@ -1,0 +1,48 @@
+#!/usr/bin/python
+
+#Author: Geoff Howland
+#Project: Red Eye Monitoring (REM)   http://redeyemon.sourceforge.net/
+#Licensed under the MIT License:     http://en.wikipedia.org/wiki/MIT_License
+
+
+"""
+REM: Is this the Site Control Master?
+
+If yes, output="1", and exit code=0.  If no, output=0 and exit code = 1.
+"""
+
+
+# REM libraries
+import site_control
+import run_script
+from rem_api import cloud as rem_ec2
+from rem_util import *
+
+
+
+def IsSiteControlMaster():
+  """Return int-boolean(0/1) if this machine is the Site Control Master.
+  """
+  result = site_control.IsThisMachineSiteMaster()
+  
+  # Return result
+  if result:
+    return 1
+  else:
+    return 0
+
+
+def main():
+  is_master = IsSiteControlMaster()
+  
+  print is_master
+  
+  if is_master:
+    sys.exit(0)
+  else:
+    sys.exit(1)
+
+
+if __name__ == '__main__':
+  logging.Disable()
+  main()

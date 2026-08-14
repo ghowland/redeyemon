@@ -1,0 +1,21 @@
+<a href="pool?id=%(id)s"><b>%(name)s</b></a><br>
+
+<div style="margin-left: 10px;">
+	<table>
+	<tr>
+		<td>%(site_data_center_name)s</td>
+		<td>%(hardware_kind_name)s</td>
+		<td>%(hardware_image_name)s</td>
+		<td>%(machine_goal)s</td>
+		<td>%(machine_active)s</td>
+		<td>%(machine_statuses)s</td>
+	</tr>
+	</table>
+
+	%(parent_pool_info)s
+
+	%(machine_info)s
+
+	%(pool_db_storage_info)s
+
+</div>

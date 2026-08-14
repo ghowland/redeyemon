@@ -1,0 +1,7 @@
+<tr>
+	<td>%(status_image)s</td>
+	<td><a href="storage?id=%(id)s"><b>%(name)s</b></a></td>
+	<td><a href="storage_handler_stack?id=%(handler_stack)s">%(handler_stack_name)s</a></td>
+	<td>%(size_gb)sGB</td>
+	<td><a href="machine?id=%(mount_machine)s">%(mount_machine_name)s</td>
+</tr>

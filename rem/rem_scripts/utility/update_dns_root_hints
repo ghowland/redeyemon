@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+#Author: Geoff Howland
+#Project: Red Eye Monitoring (REM)   http://redeyemon.sourceforge.net/
+#Licensed under the MIT License:     http://en.wikipedia.org/wiki/MIT_License
+#
+
+echo Updating /var/named/named.root from Internet.net
+
+# Backup current version with a timestamp
+cp /var/named/named.root /var/named/named.root_`date +%Y%m%d%H%M%S`
+
+# Get the new one
+wget --user=ftp --password=ftp ftp://ftp.rs.internic.net/domain/db.cache -O /var/named/named.root_new
+
+# Install the new one
+mv /var/named/named.root_new /var/named/named.root

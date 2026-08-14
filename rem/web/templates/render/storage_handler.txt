@@ -1,0 +1,32 @@
+
+<h2>%(status_image)s Storage Handler: <b>%(name)s</b></h2>
+
+<div class="red_box" style="width: 66%;">
+	<table width="100%">
+	<tr>
+		<td><b>Config Script:</b></td>
+		<td><a href="script?id=%(script_config)s">%(script_config_name)s</a></td>
+
+		<td><b>Verify Script:</b></td>
+		<td><a href="script?id=%(script_verify)s">%(script_verify_name)s</a></td>
+	</tr><tr>
+		<td><b>Monitor Script:</b></td>
+		<td><a href="script?id=%(script_monitor)s">%(script_monitor_name)s</a></td>
+
+		<td><b>Repair Script:</b></td>
+		<td><a href="script?id=%(script_repair)s">%(script_repair_name)s</a></td>
+	</tr><tr>
+		<td><b>Decommission Script:</b></td>
+		<td><a href="script?id=%(script_decommission)s">%(script_decommission_name)s</a></td>
+		
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td><b>Info:</b></td>
+		<td>%(info)s</td>
+		
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+</div>

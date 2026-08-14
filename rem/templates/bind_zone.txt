@@ -1,0 +1,14 @@
+$TTL 3H
+@       IN      SOA     %(domain)s. support.%(domain)s. (
+                        %(date)s       ; serial, todays date to the hour
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+%(ns)s
+                MX      10 mail  ; Primary Mail Exchanger
+
+localhost       A       127.0.0.1
+
+
+%(records)s

@@ -1,0 +1,50 @@
+
+<h2>%(status_image)s Machine: <b>%(name)s</b></h2>
+
+<div class="red_box" style="width: 80%;">
+	<table width="100%">
+	</tr><tr>
+		<td><b>Pool:</b></td>
+		<td><a href="pool?id=%(pool)s">%(pool_name)s</a></td>
+	</tr>
+	<tr>
+		<td><b>Status:</b></td>
+		<td>%(status_name)s</td>
+
+		<td><b>Zone:</b></td>
+		<td>%(site_data_center_name)s</td>
+	</tr><tr>
+		<td><b>Hardware:</b></td>
+		<td>%(hardware_kind_name)s</td>
+
+		<td><b>Image:</b></td>
+		<td>%(hardware_image_name)s</td>
+	</tr><tr>
+		<td><b>Public DNS:</b></td>
+		<td>%(dns_public)s</td>
+
+		<td><b>Private DNS:</b></td>
+		<td>%(dns_private)s</td>
+	</tr><tr>
+		<td><b>Launched:</b></td>
+		<td>%(time_launch)s</td>
+	</tr>
+	</table>
+</div>
+
+<div class="black_box" style="width: 50%;">
+<b>Services:</b>
+
+<table width="100%">
+%(service_info)s
+</table>
+</div>
+
+<div class="black_box" style="width: 80%;">
+<b>Pools:</b>
+
+<table width="100%">
+%(pool_info)s
+</table>
+</div>
+

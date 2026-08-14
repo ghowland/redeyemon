@@ -1,0 +1,40 @@
+
+<h2>%(status_image)s Storage Volume: <b>%(storage_name)s :: %(storage_order)s</b></h2>
+
+<div class="red_box" style="width: 66%;">
+	<table width="100%">
+	<tr>
+		<td><b>Storage:</b></td>
+		<td><a href="storage?id=%(storage)s">%(storage_name)s</a></td>
+		
+		<td><b>Size GB:</b></td>
+		<td>%(size_gb)s</td>
+	</tr><tr>
+		<td><b>Status:</b></td>
+		<td>%(status_name)s</td>
+
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td><b>Machine:</b></td>
+		<td><a href="machine?id=%(machine)s">%(machine_name)s</a></td>
+
+		<td><b>Device:</b></td>
+		<td>%(machine_device)s</td>
+	</tr><tr>
+		<td><b>Volume ID:</b></td>
+		<td>%(volume_id)s</td>
+
+		<td><b>Zone:</b></td>
+		<td>%(zone)s</td>
+	</tr>
+	</table>
+</div>
+
+<div class="black_box" style="width: 50%;">
+<b>Snapshots:</b>
+
+<table width="100%">
+%(snapshot_info)s  <b>TODO(g): Add these snapshots, and create those pages too.</b>
+</table>
+</div>

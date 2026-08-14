@@ -1,0 +1,50 @@
+
+<h2>%(status_image)s Storage: <b>%(name)s</b></h2>
+
+<div class="red_box" style="width: 66%;">
+	<table width="100%">
+	<tr>
+		<td><b>Status:</b></td>
+		<td>%(status_name)s</td>
+
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td><b>Handler Stack:</b></td>
+		<td><a href="storage_handler_stack?id=%(handler_stack)s">%(handler_stack_name)s</a></td>
+
+		<td><b>Size GB:</b></td>
+		<td>%(size_gb)s</td>
+	</tr><tr>
+		<td><b>Machine:</b></td>
+		<td><a href="machine?id=%(mount_machine)s">%(mount_machine_name)s</a></td>
+
+		<td><b>Mount Path:</b></td>
+		<td>%(mount_path)s</td>
+	</tr><tr>
+		<td><b>Keep Backups:</b></td>
+		<td>%(backup_keep_count)s</td>
+
+		<td></td>
+		<td></td>
+	</tr><tr>
+		<td><b>Storage Master:</b></td>
+		<td>%(storage_master)s</td>
+
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+</div>
+
+<div class="black_box" style="width: 85%;">
+%(parent_set)s
+</div>
+
+<div class="black_box" style="width: 50%;">
+<b>Volumes:</b>
+
+<table width="100%">
+%(volume_info)s
+</table>
+</div>

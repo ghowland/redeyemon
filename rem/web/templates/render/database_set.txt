@@ -1,0 +1,20 @@
+
+<h2 style="width: 50%">Database Set: <b>%(name)s</b></h2>
+
+<div class="red_box" style="width: 85%;">
+<b>Databases:</b>
+
+<table width="100%">
+%(database_info)s
+</table>
+</div>
+
+
+<div class="black_box" style="width: 85%;">
+<b>Pools:</b><br>
+
+<table width="100%">
+%(pool_info)s
+</table>
+</div>
+

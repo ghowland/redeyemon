@@ -1,0 +1,5 @@
+<tr>
+	<td>%(status_image)s</td>
+	<td><a href="service?id=%(id)s"><b>%(name)s</b></a></td>
+	<td>%(init_service)s</td>
+</tr>

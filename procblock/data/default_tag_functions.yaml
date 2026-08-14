@@ -1,0 +1,150 @@
+# procblock: Default Tag Functions
+#
+# __builtin: specifies a functions in the builtins module
+# __priority: specifies the order to process this tag.  Lower is earlier.
+
+#TODO(g): Think about the conditions block and conditions.  Doing it right?
+
+
+
+#set .*?:
+#  __builtin: Set
+#  __priority: 20
+#  __skip_name: set
+
+
+if .*?:
+  __builtin: ConditionIf
+  __priority: 600
+  __skip_name: if
+
+
+## If elif is not processed linearly through the "conditions" block, then all
+##   elif statements will be interpretted in their alpha-sorted order.
+##
+##   This design direction gives 2 ways to use conditions, as strict flow, or
+##     as collections of rules.  If any "if" conditions pass, they will add
+##     "elif" to the "__skip" list, and no elif blocks will be processed.
+##     This possibly confusing difference between functions in the conditions
+##     block and outside is left because it provides diverse functionality, and
+##     the internal workings are the same in both cases.  The code does not
+##     change, only the structure and environment it is running in.
+##
+##   If elif statements are in the "conditions" block, then only the first
+##     elif that scans True will be processed.
+#elif .*?:
+#  __builtin: ConditionElseIf
+#  __priority: 101
+#  __skip_name: elif
+#
+#
+## Else is only processed if not added to the __skip list.  If any if or elif
+##   block scans True, then "else" is added to the __skip list, and will not
+##   be processed.
+#else:
+#  __builtin: ConditionElse
+#  __priority: 102
+
+
+#conditions:
+#  __builtin: Conditions
+#  __priority: 105
+
+
+#TODO(g): Later reduce this to a more fundamental runblock?
+run:
+  __builtin: RunBlock
+  __priority: 800
+
+
+# Run all the elements in this block in their own threads
+run simultaneous:
+  __builtin: RunSimultaneousBlock
+  __priority: 800
+#TODO(g): Decomm this one with the underscore.  Not needed.
+run_simultaneous:
+  __builtin: RunSimultaneousBlock
+  __priority: 800
+
+
+# Use __output (if set) or block data and fill out template and store in __output
+#   Copy __output to __output_raw first.
+template:
+  __builtin: Template
+  __priority: 900
+
+
+list add .*?:
+  __builtin: List_Add
+  __priority: 50
+  __skip_name: list_add
+#TODO(g): Decomm this one with the underscore.  Not needed.
+list_add .*?:
+  __builtin: List_Add
+  __priority: 50
+  __skip_name: list_add
+
+
+list del .*?:
+  __builtin: List_Delete
+  __priority: 50
+  __skip_name: list_delete
+#TODO(g): Decomm this one with the underscore.  Not needed.
+list_del .*?:
+  __builtin: List_Delete
+  __priority: 50
+  __skip_name: list_delete
+
+
+increment .*?:
+  __builtin: Increment
+  __priority: 50
+  __skip_name: increment
+
+
+decrement .*?:
+  __builtin: Decrement
+  __priority: 50
+  __skip_name: decrement
+
+
+# Flow Control: Put processed block's output into a queue.
+#   Puts the result of the tag (if not there, None) into specified queue
+put tag .*? in queue .*?:
+#control PutTagResultInQueue:  ??
+#__control_PutTagResultInQueue:
+  __builtin: Control_PutTagResultInQueue
+  __priority: 9999
+  required:
+    tag: ""
+    queue: ""
+
+
+#require lock: <lockname>
+#control PreProcessLockAquire:  ??
+require lock:
+  __builtin: Control_PreProcessLockAcquire
+  __priority: 0
+  required:
+    name: ""
+    
+  # Optional arguments
+  optional:
+    timeout: ""
+    #TODO(g): If the lock times out, process some block, and then continue
+    #   processing
+    timeout_block: {}
+    #TODO(g): If this is set, then if there is a timeout on the lock, then
+    #   fail to process this block and throw an exception with this string info.
+    timeout_exception: ""
+
+
+release lock:
+#control FinalProcessLockRelease:  ??
+#__control_FinalProcessLockRelease:
+  __builtin: Control_FinalProcessLockRelease
+  __priority: 9999
+  required:
+    name: ""
+
+

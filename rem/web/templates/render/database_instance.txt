@@ -1,0 +1,32 @@
+
+<h2 style="width: 50%;">%(status_image)s Database Instance: <b>%(db_name)s</b></h2>
+
+<div class="red_box" style="width: 66%;">
+	<table width="100%">
+	<tr>
+		<td><b>Database:</b></td>
+		<td><a href="database?id=%(db)s">%(db_name)s</a></td>
+
+		<td><b>Status:</b></td>
+		<td>%(status_name)s</td>
+	</tr><tr>
+		<td><b>Type:</b></td>
+		<td>%(kind_name)s</td>
+		
+		<td><b>Machine:</b></td>
+		<td><a href="machine?id=%(machine)s">%(machine_name)s</a></td>
+	</tr><tr>
+		<td><b>Storage:</b></td>
+		<td><a href="storage?id=%(mount_storage)s">%(mount_storage_name)s</a></td>
+
+		<td><b>Mount Path:</b></td>
+		<td>%(mount_path)s</td>
+	</tr><tr>
+		<td><b>Is Writable:</b></td>
+		<td>%(is_writable)s</td>
+
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+</div>
