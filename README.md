@@ -1,5 +1,6 @@
+![Red Eye Monitor](docs/rem_128.png)
+
 # Red Eye Monitor (REM) Documentation
-## Created in 2010, this is a clone of the Sourceforge repo
 
 [About Page](http://redeyemon.sourceforge.net/)
 
@@ -8,6 +9,8 @@
 ## Overview
 
 ### Total Systems Automation
+
+![Total Systems Automation](docs/tsa.png)
 
 Total Systems Automation (TSA, the good kind), is a new approach to system administration.  The defining different between TSA and traditional system administration is that systems managed under a TSA approach will not require human involvement in any of the normal administration of systems.
 
@@ -20,6 +23,8 @@ A TSA system is not meant to elminate system administrators, it is meant to rais
 With the availability of "Cloud Computing" ISPs, such as Amazon, TSAs become available to the public who would normally not be able to maintain a large pool of hardware, and shift broken components out of the working component pool, and have staff to manage them without interfering with their automation of provisioning, configuration, operation, scaling and repairs.
 
 ### Cloud Computing vs. Utility Computing
+
+![Utility Computing](docs/utility_computing.png)
 
 It is worth noting that the service that Amazon and others are providing and labeling as "Cloud Computing", are better understood as "Utility Computing", which is buying computer, network and storage resources in the way you might buy gas and eletricity as a resource.  A centralized provider makes available resources that can be paid for monthly/hourly, as the resource is needed.
 
@@ -45,6 +50,8 @@ If our operations are more important to us, and outages at the hands of vendors 
 
 ### Cloud Computing vs. Service Centric Total Systems Automation
 
+![Service Centric Total Systems Automation](docs/service_tsa.png)
+
 Since Cloud Computing is not very well defined, and has an air of hand waving about it, it makes for great journalism and water cooler discussions, but is a poor marker for coming up with concrete plans to use Utility Computing resources.  Additionally, very few large organizations will work solely in the cloud, or should for a number of reasons.
 
 Also, using any single cloud vendor, like Amazon EC2, while they are good enough to be a primary cloud computing resource, leads to being locked in and caught whenever they have wide scale problems, come under siege from massive hacking efforts, does not allow competition on price, resources or support, resource shortages from popularity, and many more potential problems.  A robust cloud computing plan should include having multiple cloud vendors, to ensure the ability to scale resources when your primary vendor is failing to meet your requirements.
@@ -66,6 +73,8 @@ The difference between them is that a TSA system starts off automated from the b
 A TSA system should lead to a much easier system to scale and manage, and will adapt to changes with minimal effort, but is requires significantly more expertise and work to initially configure.
 
 ## Hierarchy
+
+![Site](docs/site.png)
 
 The REM system is a hierarchy, where everything springs forth from a Site, which allows a single REM installation to handle many seperate systems, which can either interact with each other, or remain completely seperate.  User access can be different between these Sites so that they be managed seperately, while still retaining authoritative information about each other.
 
@@ -91,6 +100,8 @@ If a Hardware Component has an external shell, and this corresponds to it's rack
 
 ### Hardware Ports
 
+![Hardware Port](docs/hardware_port.png)
+
 One important aspect of hardware is that components connect together to other components, both inside the same hardware set (such as disks to the drive controller) and to other hardware sets (such as NICs to switches, PSUs to power strips, Fibre Channel to SAN switches, etc).  Instead of making these hardware components, ports are special and attach to hardware components, but are considered seperate.
 
 Hardware ports specify a type (like 110 Power, RJ-45, Fiber Channel or DB9), and whether they are a provider, consumer or bi-directional, to assist us in understanding which port is providing power and which is consuming power, or which is prodiving the source KVM signals, and which source is consuming KVM signals to pass on to a remote user.
@@ -107,7 +118,11 @@ When similar Hardware Sets can share code, the scripts can simply be duplicated 
 
 ### Hardware Set Instance
 
+![Hardware Set Instance](docs/hardware_set_instance.png)
+
 A Hardware Set Instance is the first usuable data construct in this hierarchy so far.  Before this, things have been specified in general, but this is a unique instance of a specified set of hardware components and ports.
+
+![Location](docs/location.png)
 
 A Hardware Set Instance has a Location, which is hierarchically specified (North America, California, Sunnyvale, Data Center, Cage Number, Rack Row), and then given a Rack Unit height from the bottom of the rack position being RU0.  So a Hardware Set Instance may be positioned at RU20, half-way up a rack, and it's root Hardware Component, a chassis, has a 10 Rack Unit height value, so the Rack Unit area between RU20 and RU30 is taken up by this Hardware Set Instance.
 
@@ -119,6 +134,8 @@ Because ports specify whether they are a provider, consumer or share resources b
 
 ### Hardware Megavisor
 
+![Megavisor](docs/megavisor.png)
+
 This is an abstraction as a method for how to interface with a Hardware Set.  The Megavisor sits on top of any other kind of management for the hardware, so if a hardware hypervisor exists for creating virtual instances (like the IBM Blade LPARs), the Megavisor controls the hardware hypervisor.  Similarly if hardware has a software hypervisor (like VMWare's ESX or Xen), the megavisor also manages this to create trackable instances.  Finally if hardware is simply raw hardware, the megavisor controls this the same way.
 
 The Megavisor is simply a wrapper for named scripts, Functions, that control a specific Hardware Set.  A Hardware Set may have more than one Megavisor that could control it, if different scripts provide a different kind of functionality.  This will be more useful on a regular basis for creating a new version of a Megavisor, so the old version still functions on instances it controls, while the new Megavisor set of Functions is being tested, and then instances are migrated to it.
@@ -126,6 +143,8 @@ The Megavisor is simply a wrapper for named scripts, Functions, that control a s
 REM is designed to be upgraded, so every area works to provide mechanisms to go through development, QA, staging and finally make it into production, both for REM control scripts and changes, and for the actual operation environment, since both are critical to a smooth running operation.
 
 ### Platform
+
+![Platform](docs/platform.png)
 
 A platform is basically an Operating System version.  This is a label for a specific brand and version of operating system, or different builds and patches of an operating system.
 
@@ -172,11 +191,15 @@ Monitoring is also enabled, which is the only exception for the un-configured ma
 
 ### Storage
 
+![Storage](docs/storage.png)
+
 Storage is the encapsulated sum of everything needs to manage the physical or virtual elements, whether local or remote, that allow us to mount a device, or series of devices, onto a machine and ultimately onto the file system path for writing files, or not file system mounted if raw device usage is preferred.
 
 The number and type of the volumes and the functions to manage those volumes are wrapped in the Storage Volumes and Storage Handler Stack, respectively.
 
 ### Storage Handler Stack
+
+![Storage Handler Function](docs/storage_handler_function.png)
 
 Every Storage has a Handler Stack, which is a hierarchy of Storage Handler's, which are named sets of Functions, such as for the ext3, XFS, ZFS or JFS file systems, or the DRBD network RAID 1 layer, the Linux or Veritas Volume Managers, and local or Amazon Elastic Block Storage (EBS) or SAN mounted volumes.
 
@@ -211,6 +234,8 @@ Backups of volumes.  Will be done all at the same time, and consistently, if set
 
 ### Service
 
+![Service](docs/service.png)
+
 The Service is the most important concept in REM.  A Service defines everything a class of machine will need to do to perform it's job.  This includes:
 
 - What Service Packages are required to install, prepare for configuration (once all the Service's Interfaces and Connections have been aligned), and finally configure (against all machines in the Service and it's connected Services).
@@ -232,17 +257,23 @@ Once the Interfaces and Connections have been specified in the Service, for the 
 
 ### Service Interface
 
+![Service Interface](docs/service_interface.png)
+
 A Service Interface takes a Package on a machine, whether it is a Platform Package or Service Package, and maps the Package Interface to a Service Interface, which is named and is the target of a Service Connection.
 
 The Service Interface represents a way to allow incoming network traffic to the Service Machine, and allows dependency graphing of all of our Services, for Alert Suppression, so that the supplying Service is known to be a dependency for receiving Service.
 
 ### Service Connection
 
+![Automatic Configuration](docs/autoconfig.png)
+
 This is an outgoing connection from a Service on the running machine, to another Service (probably on another Machine, but not enforced).
 
 Between the Service Interface and the Service Connection, we can populate our configuration files with REM Template Formatted Variables which will be automatically populated with the data specified in the named Service Connections and Interfaces, so that configuration is always correct, and Services can be re-organized in their specifications, and configurations will remain properly configured.
 
 ### Service Level
+
+![Site Location](docs/site_location.png)
 
 Service Levels deal with the amount of Machines running for a particular Service, in a particular Location.  Locations may need different amounts of Machines to provide the best service at the best price point, as well as different Machine requirements (Hardware Sets).
 
@@ -278,4 +309,20 @@ More interesting cases would be for a Service Level will be directed at the dura
 
 ## Monitoring, RRDs, Graphing, State, Alerts, and Triggers
 
+![Monitoring](docs/monitoring.png)
+
+![Remote Monitoring](docs/monitoring_remote.png)
+
+![Monitor Level](docs/monitor_level.png)
+
+![Monitor Level Result](docs/monitor_level_result.png)
+
+![Alerting](docs/alerting.png)
+
 *To be continued...*
+
+## Database
+
+![Database](docs/database.png)
+
+![Database Shard](docs/database_shard.png)
