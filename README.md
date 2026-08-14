@@ -1,6 +1,6 @@
 ![Red Eye Monitor](docs/rem_128.png)
 
-# Red Eye Monitor (REM) Documentation
+# Red Eye Monitor (REM) Documentation: Legacy from 2010
 
 [About Page](http://redeyemon.sourceforge.net/)
 
